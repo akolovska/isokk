@@ -27,16 +27,16 @@ function average(string | array $array) {
     return array_sum($prices) / count($prices);
 }
 
-//$products = [
-//    ["name" => "Keyboard", "price" => 30, "inStock" => true],
-//    ["name" => "Mouse", "price" => 15, "inStock" => false],
-//    ["name" => "Monitor", "price" => 120,"inStock" => true],
-//    ["name" => "USB Cable", "price" => 8, "inStock" => false],
-//];
-//array_multisort($products);
-//print_r($products);
-//usort($products, fn($a, $b) => $a["price"] <=> $b["price"]);
-//print_r($products);
+$products = [
+    ["name" => "Keyboard", "price" => 30, "inStock" => true],
+    ["name" => "Mouse", "price" => 15, "inStock" => false],
+    ["name" => "Monitor", "price" => 120,"inStock" => true],
+    ["name" => "USB Cable", "price" => 8, "inStock" => false],
+];
+array_multisort($products);
+print_r($products);
+usort($products, fn($a, $b) => $a["price"] <=> $b["price"]);
+print_r($products);
 $products = [
     ["name" => "Keyboard", "price" => 30],
     ["name" => "Mouse", "price" => 15],
@@ -57,14 +57,14 @@ print_r(next($products));
 print_r(reset($products));
 print_r(end($products));
 print_r(current($products));
-//sort($products);
-//print_r($products);
-//asort($products);
-//print_r($products);
-//ksort($products);
-//print_r($products);
-//krsort($products);
-//print_r($products);
+sort($products);
+print_r($products);
+asort($products);
+print_r($products);
+ksort($products);
+print_r($products);
+krsort($products);
+print_r($products);
 
-//echo "<h1>Hello</h1>";
-//phpinfo();
+echo "<h1>Hello</h1>";
+phpinfo();
