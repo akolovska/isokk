@@ -1,0 +1,66 @@
+<?php
+require 'db.php';
+
+$errors = [];
+$title = $due_date = $priority = $status = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $title = trim($_POST['title']);
+    $due_date = $_POST['due_date'];
+    $priority = $_POST['priority'];
+    $status = $_POST['status'];
+
+    // Валидација
+    if ($title === '') $errors['title'] = "Насловот е задолжителен.";
+    if ($due_date === '') $errors['due_date'] = "Рокот е задолжителен.";
+    if (!in_array($priority, ['Low', 'Medium', 'High'])) $errors['priority'] = "Невалиден приоритет.";
+    if (!in_array($status, ['Pending', 'Done'])) $errors['status'] = "Невалиден статус.";
+
+    if (empty($errors)) {
+        $stmt = $db->prepare("INSERT INTO tasks (title, due_date, priority, status) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$title, $due_date, $priority, $status]);
+        header("Location: index.php");
+        exit;
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <title>Додади нова задача</title>
+</head>
+<body>
+<h2>Додади нова задача</h2>
+<form method="post">
+    <label>Наслов:</label><br>
+    <input type="text" name="title" value="<?= htmlspecialchars($title) ?>"><br>
+    <span style="color:red"><?= $errors['title'] ?? '' ?></span><br>
+
+    <label>Рок:</label><br>
+    <input type="date" name="due_date" value="<?= htmlspecialchars($due_date) ?>"><br>
+    <span style="color:red"><?= $errors['due_date'] ?? '' ?></span><br>
+
+    <label>Приоритет:</label><br>
+    <select name="priority">
+        <option value="">-- Одбери --</option>
+        <?php foreach (['Low', 'Medium', 'High'] as $opt): ?>
+            <option value="<?= $opt ?>" <?= $priority === $opt ? 'selected' : '' ?>><?= $opt ?></option>
+        <?php endforeach; ?>
+    </select><br>
+    <span style="color:red"><?= $errors['priority'] ?? '' ?></span><br>
+
+    <label>Статус:</label><br>
+    <select name="status">
+        <option value="">-- Одбери --</option>
+        <?php foreach (['Pending', 'Done'] as $opt): ?>
+            <option value="<?= $opt ?>" <?= $status === $opt ? 'selected' : '' ?>><?= $opt ?></option>
+        <?php endforeach; ?>
+    </select><br>
+    <span style="color:red"><?= $errors['status'] ?? '' ?></span><br><br>
+
+    <button type="submit">Зачувај</button>
+    <a href="index.php">Назад</a>
+</form>
+</body>
+</html>
