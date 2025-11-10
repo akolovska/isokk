@@ -1,8 +1,8 @@
 <?php
 include "database_connection.php";
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_POST['id'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $db = connectDatabase();
-    $id = intval($_POST['id']);
+    $id = intval($_GET['id']);
 
     $stmt = $db->prepare("SELECT * FROM films WHERE id = :id");
     $stmt->bindValue(":id", $id, SQLITE3_INTEGER);
