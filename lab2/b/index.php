@@ -36,11 +36,11 @@ if (!$result) {
     <form method="get">
         <label for="filter">Sort by:
             <select name="filter" id="filter" onchange="this.form.submit()">
-                <option value="id" <?= $filter === 'id' ? 'selected' : '' ?>>Id</option>
-                <option value="title" <?= $filter === 'title' ? 'selected' : '' ?>>Title</option>
-                <option value="date" <?= $filter === 'date' ? 'selected' : '' ?>>Date</option>
-                <option value="priority" <?= $filter === 'priority' ? 'selected' : '' ?>>Priority</option>
-                <option value="status" <?= $filter === 'status' ? 'selected' : '' ?>>Status</option>
+                <option value="id" <?= $filter === 'id' ?>>Id</option>
+                <option value="title" <?= $filter === 'title' ?>>Title</option>
+                <option value="date" <?= $filter === 'date' ?>>Date</option>
+                <option value="priority" <?= $filter === 'priority' ?>>Priority</option>
+                <option value="status" <?= $filter === 'status' ?>>Status</option>
             </select>
         </label>
     </form>
