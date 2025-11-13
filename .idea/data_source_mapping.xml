@@ -2,6 +2,7 @@
 <project version="4">
   <component name="DataSourcePerFileMappings">
     <file url="file://$PROJECT_DIR$/aud4/index.php" value="cb297fed-59ae-4978-b2c3-db97ac08ba40" />
+    <file url="file://$PROJECT_DIR$/aud5/login_handler.php" value="cb297fed-59ae-4978-b2c3-db97ac08ba40" />
     <file url="file://$PROJECT_DIR$/lab2/a/create.php" value="cb297fed-59ae-4978-b2c3-db97ac08ba40" />
     <file url="file://$PROJECT_DIR$/lab2/b/update_form.php" value="cb297fed-59ae-4978-b2c3-db97ac08ba40" />
   </component>
