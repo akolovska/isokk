@@ -1,19 +1,19 @@
 <?php
-//$foo = "0\n";
-//echo $foo;
-//$foo += 2;
-//echo $foo . "\n";
-//var_dump($foo == 2);
-//var_dump($foo === "2");
-//$foo = null;
-//var_dump($foo);
-//$strings = "ana,banana,ananas";
-//$exploded = explode(",", $strings);
-//print_r($exploded);
-//print(substr("hello world", 6, 5));
-//$array = [1 => "value1", 2 => "value2", 3 => "value3"];
-//foreach ($array as $key => $val)
-//    print "$key => $val\n";
+$foo = "0\n";
+echo $foo;
+$foo += 2;
+echo $foo . "\n";
+var_dump($foo == 2);
+var_dump($foo === "2");
+$foo = null;
+var_dump($foo);
+$strings = "ana,banana,ananas";
+$exploded = explode(",", $strings);
+print_r($exploded);
+print(substr("hello world", 6, 5));
+$array = [1 => "value1", 2 => "value2", 3 => "value3"];
+foreach ($array as $key => $val)
+    print "$key => $val\n";
 
 function getneso($array)
 {
